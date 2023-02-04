@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/brush in space.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/starfield.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -48,6 +49,9 @@ custom_fonts/font = SubResource( 3 )
 text = "Quit"
 flat = true
 align = 0
+
+[node name="starfield" parent="." instance=ExtResource( 3 )]
+position = Vector2( 201, -1028 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
