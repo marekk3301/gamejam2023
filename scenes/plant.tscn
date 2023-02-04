@@ -60,8 +60,5 @@ animation = "seed"
 position = Vector2( -10, -319.5 )
 shape = SubResource( 6 )
 
-[connection signal="area_entered" from="plant" to="plant" method="_on_plant_area_entered"]
-[connection signal="area_exited" from="plant" to="plant" method="_on_plant_area_exited"]
-[connection signal="body_entered" from="plant" to="plant" method="_on_plant_body_entered"]
-[connection signal="body_exited" from="plant" to="plant" method="_on_plant_body_exited"]
-[connection signal="timeout" from="plant/Timer" to="plant" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="." to="." method="_on_plant_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_plant_area_exited"]

@@ -49,7 +49,7 @@ func _process(delta):
 		print(bigOxygenInput)
 	else: print("none")
 	
-	$TextureProgress.value += 1
+	#$TextureProgress.value += 1
 
 	get_node("%TextureProgress").value += 1
 	get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
