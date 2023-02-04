@@ -2,19 +2,22 @@ extends Area2D
 
 signal hit
 
+onready var timer = get_node("Timer")
 var rng = RandomNumberGenerator.new()
-var time = rng.randi_range(4, 10)
-export var animation_stage = 0
+var time = rng.randi_range(2, 5)
+var animation_stage = 0
 var growthRate = 0
+var isCut = false
 
 var CollidingBody = null
 
 func _ready():
-	pass
+	timer.wait_time = 3
+	timer.connect("timeout", self, "_on_timer_timeout")
 
 func nextGrowthStage():
 	animation_stage += 1
-	time = rng.randf_range(4, 10)
+	time = rng.randf_range(2, 5)
 	if animation_stage == 1:
 		$PlantSprite.play("stage1")
 	elif animation_stage ==2:
@@ -23,6 +26,9 @@ func nextGrowthStage():
 		$PlantSprite.play("stage3")
 	elif animation_stage ==4:
 		$PlantSprite.play("stage4")
+	elif animation_stage ==5:
+		$PlantSprite.play("stage5")
+		timer.start()
 	else:
 		pass
 
@@ -47,6 +53,8 @@ func _on_plant_area_entered(area):
 
 func _on_plant_area_exited(area):
 	CollidingBody = null
+	if animation_stage == 5:
+		isCut = true
 
 
 func _input(event):
@@ -64,3 +72,9 @@ func _input(event):
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 
 		GlobalVariables.remove_from_activePlantList(self)
+			  
+
+func _on_timer_timeout():
+	if !isCut:
+		get_tree().change_scene("res://scenes/gameOver.tscn")
+	isCut = false
