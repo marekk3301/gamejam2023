@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	var direction = 0
 	if Input.is_action_pressed("ui_left"):
-		direction += 1		
+		direction += 1
 		$player.play("left")
 	elif Input.is_action_pressed("ui_right"):
 		direction = -1
@@ -27,20 +27,20 @@ func _process(delta):
 	else:
 		$player.scale = Vector2(1, 1)
 		$player.play("idle")
-		
+
 	$planet.rotate(direction*delta)
-	
-	
+
+
 func plant_seed():
 	var plant = plantScene.instance()
-	var angle = $planet.rotation
+	var angle = -$planet.rotation - PI/2
 	plant.scale = Vector2(0.2, 0.2)
 	plant.position = Vector2(planetRadius*cos(angle), planetRadius*sin(angle))
-	plant.rotation = angle
+	plant.rotation = angle + PI / 2
 	$planet.add_child(plant)
 	print(angle)
-		
-	
+
+
 func _input(event):
 	if event.is_action_pressed("plant_seed"):
 		plant_seed()
