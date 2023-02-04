@@ -45,7 +45,7 @@ func _on_plant_area_entered(area):
 
 	
 
-func _on_plant_area_exited():
+func _on_plant_area_exited(area):
 	CollidingBody = null
 
 
@@ -56,9 +56,9 @@ func _input(event):
 		$CollisionShape2D.set_deferred("disabled", true)
 
 		if animation_stage < 4:
-			var seedYield = rng.randf_range(0, 1)
+			var seedYield = rng.randf_range(0, 2)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 
 		else:
-			var seedYield = rng.randi_range(0, 2)
+			var seedYield = rng.randi_range(0, 3)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
