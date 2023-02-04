@@ -7,6 +7,7 @@ var rng = RandomNumberGenerator.new()
 var time = rng.randi_range(2, 5)
 var animation_stage = 0
 var growthRate = 0
+var isCut = false
 
 var CollidingBody = null
 
@@ -52,6 +53,8 @@ func _on_plant_area_entered(area):
 
 func _on_plant_area_exited(area):
 	CollidingBody = null
+	if animation_stage == 5:
+		isCut = true
 
 
 func _input(event):
@@ -70,4 +73,6 @@ func _input(event):
 			  
 
 func _on_timer_timeout():
-	get_tree().change_scene("res://scenes/gameOver.tscn")
+	if !isCut:
+		get_tree().change_scene("res://scenes/gameOver.tscn")
+	isCut = false
