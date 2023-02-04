@@ -3,6 +3,10 @@ extends Control
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
 	pass
+	
+func _process(delta):
+	if $AudioStreamPlayer.playing == false:
+			$AudioStreamPlayer.play()
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://scenes/main.tscn")
 	# Replace with function body.
