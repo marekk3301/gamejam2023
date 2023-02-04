@@ -29,20 +29,25 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 20, 31.5 )
+extents = Vector2( 125, 187 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="plant" type="Area2D" parent="."]
 z_index = 2
+script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="plant"]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="plant"]
+[node name="PlantSprite" type="AnimatedSprite" parent="plant"]
 frames = SubResource( 5 )
 animation = "seed"
-script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant"]
-position = Vector2( -1, 0 )
+position = Vector2( 0, -81 )
 shape = SubResource( 6 )
+
+[connection signal="area_entered" from="plant" to="plant" method="_on_plant_area_entered"]
+[connection signal="area_exited" from="plant" to="plant" method="_on_plant_area_exited"]
+[connection signal="body_entered" from="plant" to="plant" method="_on_plant_body_entered"]
+[connection signal="body_exited" from="plant" to="plant" method="_on_plant_body_exited"]
