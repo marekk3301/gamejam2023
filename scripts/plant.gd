@@ -14,13 +14,15 @@ func _ready():
 
 func nextGrowthStage():
 	animation_stage += 1
-	time = 5
+	time = rng.randf_range(4, 10)
 	if animation_stage == 1:
 		$PlantSprite.play("stage1")
 	elif animation_stage ==2:
 		$PlantSprite.play("stage2")
 	elif animation_stage ==3:
 		$PlantSprite.play("stage3")
+	elif animation_stage ==4:
+		$PlantSprite.play("stage4")
 	else:
 		pass
 
@@ -52,7 +54,7 @@ func _input(event):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
-		if animation_stage < 3:
+		if animation_stage < 4:
 			var seedYield = rng.randf_range(0, 1)
 			GlobalVariables.increment_Seed_Count_by(seedYield)
 		else:
