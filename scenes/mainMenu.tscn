@@ -55,7 +55,8 @@ align = 0
 position = Vector2( 201, -1028 )
 
 [node name="Backgorund" type="Sprite" parent="."]
-position = Vector2( 964, -506 )
+position = Vector2( 960, -508.5 )
+scale = Vector2( 1.03021, 1.04167 )
 z_index = -1
 texture = ExtResource( 4 )
 
