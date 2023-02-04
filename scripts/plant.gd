@@ -76,5 +76,6 @@ func _input(event):
 
 func _on_timer_timeout():
 	if !isCut:
-		get_tree().change_scene("res://scenes/gameOver.tscn")
+		# get_tree().change_scene("res://scenes/gameOver.tscn")
+		pass
 	isCut = false
