@@ -33,8 +33,11 @@ func _process(delta):
 	$planet2.rotate(direction*delta)
 	$PlanetLight.rotate(direction*delta)
 	
+
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
+
+	$TextureProgress.value += 1
 
 
 func plant_seed():

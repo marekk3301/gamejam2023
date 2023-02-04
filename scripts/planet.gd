@@ -12,7 +12,7 @@ func _ready():
 # Called when the node enters the scene tree for the first time.
 func _on_ParentControl_resized():
 	var screen_size = get_viewport().size
-	self.position = Vector2(screen_size.x / 2, screen_size.y / 2)
+	self.position = Vector2(screen_size.x / 2, screen_size.y / 1.8)
 	
 	pass # Replace with function body.
 
