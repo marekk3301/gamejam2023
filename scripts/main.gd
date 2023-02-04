@@ -14,6 +14,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var direction = 0
+	if Input.is_action_pressed('reset'):
+		get_tree().change_scene("res://scenes/main.tscn")
+		
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 	if Input.is_action_pressed("ui_left"):
@@ -28,7 +31,7 @@ func _process(delta):
 		$player.play("idle")
 
 	$planet.rotate(direction*delta)
-
+	$planet2.rotate(direction*delta)
 
 func plant_seed():
 	var plant = plantScene.instance()

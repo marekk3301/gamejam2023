@@ -34,6 +34,7 @@ extents = Vector2( 20, 31.5 )
 [node name="Node2D" type="Node2D"]
 
 [node name="plant" type="Area2D" parent="."]
+z_index = 2
 
 [node name="Timer" type="Timer" parent="plant"]
 
