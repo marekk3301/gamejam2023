@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	var direction = 0
 	if Input.is_action_pressed('reset'):
-		get_tree().change_scene("res://scenes/main.tscn")
+		get_tree().change_scene("res://scenes/.tscn")
 		
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
@@ -32,6 +32,8 @@ func _process(delta):
 
 	$planet.rotate(direction*delta)
 	$planet2.rotate(direction*delta)
+	$PlanetLight.rotate(direction*delta)
+
 
 func plant_seed():
 	var plant = plantScene.instance()

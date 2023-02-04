@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/brush in space.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/starfield.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/1x/Backgorund.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/ziema.png" type="Texture" id=5]
+[ext_resource path="res://assets/1x/light.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Ziema.gd" type="Script" id=7]
+[ext_resource path="res://scenes/PlanetLight.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -20,6 +24,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -36.0
 margin_right = 34.0
+rect_pivot_offset = Vector2( 877, -698 )
 script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -68,6 +73,18 @@ position = Vector2( 960, -508.5 )
 scale = Vector2( 1.03021, 1.04167 )
 z_index = -1
 texture = ExtResource( 4 )
+
+[node name="PlanetLight" type="Light2D" parent="."]
+position = Vector2( 1293, -517 )
+scale = Vector2( 1.03958, 1.05648 )
+texture = ExtResource( 6 )
+texture_scale = 4.89
+script = ExtResource( 8 )
+
+[node name="Ziema" type="Sprite" parent="."]
+position = Vector2( 1281, -510 )
+texture = ExtResource( 5 )
+script = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
