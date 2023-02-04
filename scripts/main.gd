@@ -5,6 +5,7 @@ var planetRadius = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var oxygenLevel = 0
 	planetRadius = $planet.texture.get_height() / 2
 	pass # Replace with function body.
 
@@ -38,6 +39,15 @@ func _process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 
+
+	var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
+	var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
+	
+	if mediumOxygenInput > 0:
+		print(mediumOxygenInput)
+		print(bigOxygenInput)
+	else: print("none")
+	
 	$TextureProgress.value += 1
 
 
@@ -49,6 +59,7 @@ func plant_seed():
 		plant.position = Vector2(planetRadius*cos(angle), planetRadius*sin(angle))
 		plant.rotation = angle + PI / 2
 		$planet.add_child(plant)
+		GlobalVariables.add_to_activePlantList(plant)
 		GlobalVariables.decrement_Seed_Count()
 
 

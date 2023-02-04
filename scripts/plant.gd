@@ -4,7 +4,7 @@ signal hit
 
 var rng = RandomNumberGenerator.new()
 var time = rng.randi_range(4, 10)
-var animation_stage = 0
+export var animation_stage = 0
 var growthRate = 0
 
 var CollidingBody = null
@@ -62,3 +62,5 @@ func _input(event):
 		else:
 			var seedYield = rng.randi_range(0, 3)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
+
+		GlobalVariables.remove_from_activePlantList(self)

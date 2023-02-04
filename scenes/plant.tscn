@@ -38,25 +38,23 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 56, 425.5 )
 
-[node name="Node2D" type="Node2D"]
-
-[node name="plant" type="Area2D" parent="."]
+[node name="plant" type="Area2D"]
 position = Vector2( 0, 378 )
 z_index = 1
 script = ExtResource( 4 )
 
-[node name="Timer" type="Timer" parent="plant"]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="PlantSprite" type="AnimatedSprite" parent="plant"]
+[node name="PlantSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
 animation = "seed"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plant"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -10, -319.5 )
 shape = SubResource( 6 )
 
-[connection signal="area_entered" from="plant" to="plant" method="_on_plant_area_entered"]
-[connection signal="area_exited" from="plant" to="plant" method="_on_plant_area_exited"]
-[connection signal="body_entered" from="plant" to="plant" method="_on_plant_body_entered"]
-[connection signal="body_exited" from="plant" to="plant" method="_on_plant_body_exited"]
+[connection signal="area_entered" from="." to="." method="_on_plant_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_plant_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_plant_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_plant_body_exited"]
