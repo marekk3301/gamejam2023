@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/1x/progressbar_ramka.png" type="Texture" id=23]
 [ext_resource path="res://assets/music/background_music.mp3" type="AudioStream" id=24]
 [ext_resource path="res://assets/1x/Overlay.png" type="Texture" id=25]
+[ext_resource path="res://assets/1x/moon.png" type="Texture" id=26]
 
 [sub_resource type="CapsuleShape2D" id=3]
 
@@ -122,6 +123,12 @@ energy = 1.13
 [node name="SunRay" type="CollisionPolygon2D" parent="Sun"]
 polygon = PoolVector2Array( 33.8269, -141.181, 784.169, -78.7229, 407.768, 553.663, -121.162, 48.7952 )
 
+[node name="Moon" type="Sprite" parent="."]
+position = Vector2( 1468, 710 )
+scale = Vector2( 0.276563, 0.276563 )
+z_index = 4
+texture = ExtResource( 26 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
@@ -156,14 +163,16 @@ stream = ExtResource( 24 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 unique_name_in_owner = true
+anchor_bottom = 0.165
 margin_right = 679.0
 margin_bottom = 122.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture_under = ExtResource( 22 )
 texture_over = ExtResource( 23 )
 texture_progress = ExtResource( 21 )
 
 [node name="Overlay" type="Sprite" parent="."]
 light_mask = 2
-position = Vector2( 974, 530 )
+position = Vector2( 985, 540 )
 z_index = 3
 texture = ExtResource( 25 )

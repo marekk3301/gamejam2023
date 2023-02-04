@@ -42,7 +42,6 @@ extents = Vector2( 56, 425.5 )
 
 [node name="plant" type="Area2D" parent="."]
 position = Vector2( 0, 378 )
-z_index = 1
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="plant"]

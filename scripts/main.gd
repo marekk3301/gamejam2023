@@ -33,6 +33,7 @@ func _process(delta):
 	$planet2.rotate(direction*delta)
 	$PlanetLight.rotate(direction*delta)
 	$Sun.rotate(delta*0.05)
+	$Moon.rotate(delta*-0.05)
 	
 
 	if $AudioStreamPlayer.playing == false:
@@ -48,6 +49,7 @@ func plant_seed():
 		plant.scale = Vector2(0.2, 0.2)
 		plant.position = Vector2(planetRadius*cos(angle), planetRadius*sin(angle))
 		plant.rotation = angle + PI / 2
+		plant.z_index = -1
 		$planet.add_child(plant)
 		GlobalVariables.decrement_Seed_Count()
 
