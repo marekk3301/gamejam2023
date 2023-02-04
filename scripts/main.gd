@@ -13,7 +13,8 @@ func _ready():
 func _process(delta):
 	var direction = 0
 	if Input.is_action_pressed('reset'):
-		get_tree().change_scene("res://scenes/.tscn")
+		GlobalVariables.set_Seed_Count(5)
+		get_tree().change_scene("res://scenes/main.tscn")
 		
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()

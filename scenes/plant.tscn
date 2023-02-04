@@ -35,12 +35,14 @@ extents = Vector2( 125, 187 )
 [node name="Node2D" type="Node2D"]
 
 [node name="plant" type="Area2D" parent="."]
-z_index = 2
+position = Vector2( 0, 354 )
+z_index = 1
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="plant"]
 
 [node name="PlantSprite" type="AnimatedSprite" parent="plant"]
+scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
 animation = "seed"
 
