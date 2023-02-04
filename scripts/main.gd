@@ -21,10 +21,10 @@ func _process(delta):
 		$player.play("left")
 	elif Input.is_action_pressed("ui_right"):
 		direction = -1
-		$player.scale = Vector2(-1, 1)
+		$player.scale = Vector2(-0.5, 0.5)
 		$player.play("left")
 	else:
-		$player.scale = Vector2(1, 1)
+		$player.scale = Vector2(0.5, 0.5)
 		$player.play("idle")
 
 	$planet.rotate(direction*delta)

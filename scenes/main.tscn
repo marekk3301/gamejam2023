@@ -47,7 +47,7 @@ script = ExtResource( 10 )
 
 [node name="planet" parent="." instance=ExtResource( 1 )]
 position = Vector2( 415, 218 )
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.55, 0.55 )
 
 [node name="player" type="AnimatedSprite" parent="."]
 position = Vector2( 414, 49 )
