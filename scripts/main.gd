@@ -39,8 +39,8 @@ func _process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 
-	$TextureProgress.value += 1
-
+	get_node("%TextureProgress").value += 1
+	get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
 
 func plant_seed():
 	if GlobalVariables.get_Seed_Count() > 0:
