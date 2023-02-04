@@ -1,5 +1,6 @@
 extends Node2D
 
+var plantScene = load("res://scenes/plant.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -23,4 +24,13 @@ func _process(delta):
 		$player.play("idle")
 		
 	$planet.rotate(direction*delta)
+	
+	
+func plant_seed():
+	var plant = plantScene.instance()
+	$planet.add_child(plant)
 		
+	
+func _input(event):
+	if event.is_action_pressed("plant_seed"):
+		plant_seed()
