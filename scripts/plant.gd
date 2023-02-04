@@ -28,6 +28,8 @@ func nextGrowthStage():
 		$PlantSprite.play("stage4")
 	elif animation_stage ==5:
 		$PlantSprite.play("stage5")
+	elif animation_stage ==6:
+		$PlantSprite.play("stage6")
 		timer.start()
 	else:
 		pass

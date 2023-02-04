@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/1x/plant_stage4.png" type="Texture" id=1]
 [ext_resource path="res://assets/1x/plant_stage1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/1x/plant_stage6.png" type="Texture" id=6]
 [ext_resource path="res://assets/1x/plant_stage6a.png" type="Texture" id=7]
 [ext_resource path="res://assets/1x/plant_stage7.png" type="Texture" id=8]
+[ext_resource path="res://assets/1x/plant_stage5.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -31,14 +32,19 @@ animations = [ {
 "name": "stage3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "stage4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "stage5",
 "speed": 3.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "stage5",
+"name": "stage6",
 "speed": 3.0
 } ]
 
