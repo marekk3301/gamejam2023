@@ -17,6 +17,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var direction = 0
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 	if Input.is_action_pressed("ui_left"):
 		direction += 1
 		$player.play("left")
