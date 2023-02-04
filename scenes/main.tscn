@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/1x/progressbar_back.png" type="Texture" id=22]
 [ext_resource path="res://assets/1x/progressbar_ramka.png" type="Texture" id=23]
 [ext_resource path="res://assets/music/background_music.mp3" type="AudioStream" id=24]
+[ext_resource path="res://assets/1x/Overlay.png" type="Texture" id=25]
 
 [sub_resource type="CapsuleShape2D" id=3]
 
@@ -45,7 +46,7 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 1.0
 } ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -91,6 +92,7 @@ z_index = -1
 [node name="PlanetLight" type="Light2D" parent="."]
 position = Vector2( 961, 540.5 )
 scale = Vector2( 1.03958, 1.05648 )
+z_index = 8
 texture = ExtResource( 18 )
 texture_scale = 4.89
 script = ExtResource( 19 )
@@ -107,28 +109,34 @@ scale = Vector2( 0.406482, 0.384259 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Sun"]
 position = Vector2( -29.5216, -29.5216 )
-scale = Vector2( 0.890661, 0.890661 )
 frames = SubResource( 2 )
+playing = true
 flip_h = true
+
+[node name="Light2D" type="Light2D" parent="Sun"]
+position = Vector2( -20.2961, -27.9759 )
+scale = Vector2( 14.7854, 12.999 )
+texture = ExtResource( 18 )
+energy = 1.13
 
 [node name="SunRay" type="CollisionPolygon2D" parent="Sun"]
 polygon = PoolVector2Array( 33.8269, -141.181, 784.169, -78.7229, 407.768, 553.663, -121.162, 48.7952 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = 1408.0
-margin_top = 74.0
-margin_right = 1459.0
-margin_bottom = 121.0
+margin_left = -51.0
+margin_top = 57.0
+margin_right = -74.0
+margin_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer"]
-margin_left = 17.0
-margin_right = 33.0
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer"]
+margin_right = 16.0
 margin_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -138,7 +146,7 @@ align = 2
 valign = 1
 script = ExtResource( 3 )
 
-[node name="PlantStage1" type="Sprite" parent="HBoxContainer/Label"]
+[node name="PlantStage1" type="Sprite" parent="CanvasLayer/HBoxContainer/Label"]
 position = Vector2( -36, 36.5 )
 scale = Vector2( 1.56349, 1.56349 )
 texture = ExtResource( 20 )
@@ -147,8 +155,15 @@ texture = ExtResource( 20 )
 stream = ExtResource( 24 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+unique_name_in_owner = true
+margin_right = 679.0
+margin_bottom = 122.0
 texture_under = ExtResource( 22 )
 texture_over = ExtResource( 23 )
 texture_progress = ExtResource( 21 )
+
+[node name="Overlay" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( 974, 530 )
+z_index = 3
+texture = ExtResource( 25 )
