@@ -10,3 +10,8 @@ func _on_StartButton_pressed():
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
+
+
+func _on_controls_pressed():
+	get_tree().change_scene("res://scenes/controls.tscn")
+	pass # Replace with function body.
