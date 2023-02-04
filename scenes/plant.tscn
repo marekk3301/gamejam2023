@@ -52,7 +52,7 @@ script = ExtResource( 4 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="PlantSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 400 )
+position = Vector2( 0, 717 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 5 )
 animation = "seed"
