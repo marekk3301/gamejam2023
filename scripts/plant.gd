@@ -2,7 +2,8 @@ extends Area2D
 
 signal hit
 
-var time = 5
+var rng = RandomNumberGenerator.new()
+var time = rng.randf_range(4, 10)
 var animation_stage = 0
 var growthRate = 0
 
