@@ -1,9 +1,18 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Label.gd" type="Script" id=3]
 [ext_resource path="res://assets/fonts/brush in space.ttf" type="DynamicFontData" id=4]
+=======
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
+[ext_resource path="res://assets/1x/progressbar.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/progressbar_back.png" type="Texture" id=4]
+>>>>>>> Stashed changes
 [ext_resource path="res://assets/1x/kosmonauta_move1.png" type="Texture" id=5]
 [ext_resource path="res://scripts/player.gd" type="Script" id=6]
 [ext_resource path="res://assets/1x/sun.png" type="Texture" id=7]
@@ -19,7 +28,11 @@
 [ext_resource path="res://assets/1x/ziema_grass.png" type="Texture" id=17]
 [ext_resource path="res://assets/1x/light.png" type="Texture" id=18]
 [ext_resource path="res://scenes/PlanetLight.gd" type="Script" id=19]
+<<<<<<< Updated upstream
 [ext_resource path="res://assets/1x/plant_stage1.png" type="Texture" id=20]
+=======
+[ext_resource path="res://assets/1x/progressbar_ramka.png" type="Texture" id=20]
+>>>>>>> Stashed changes
 
 [sub_resource type="CapsuleShape2D" id=3]
 
@@ -107,6 +120,7 @@ scale = Vector2( 0.890661, 0.890661 )
 frames = SubResource( 2 )
 flip_h = true
 
+<<<<<<< Updated upstream
 [node name="SunRay" type="CollisionPolygon2D" parent="Sun"]
 polygon = PoolVector2Array( 33.8269, -141.181, 784.169, -78.7229, 407.768, 553.663, -121.162, 48.7952 )
 
@@ -138,3 +152,15 @@ script = ExtResource( 3 )
 position = Vector2( -36, 36.5 )
 scale = Vector2( 1.56349, 1.56349 )
 texture = ExtResource( 20 )
+=======
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 42.0
+margin_top = 701.0
+margin_right = 719.0
+margin_bottom = 822.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 20 )
+texture_progress = ExtResource( 3 )
+stretch_margin_left = 10
+>>>>>>> Stashed changes
