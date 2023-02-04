@@ -30,7 +30,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 125, 187 )
+extents = Vector2( 125, 386 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,7 +47,7 @@ frames = SubResource( 5 )
 animation = "seed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant"]
-position = Vector2( 0, -81 )
+position = Vector2( 0, -280 )
 shape = SubResource( 6 )
 
 [connection signal="area_entered" from="plant" to="plant" method="_on_plant_area_entered"]
