@@ -31,16 +31,17 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 20, 31.5 )
 
-[node name="plant" type="Area2D"]
+[node name="Node2D" type="Node2D"]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="plant" type="Area2D" parent="."]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -20, -11 )
+[node name="Timer" type="Timer" parent="plant"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="plant"]
 frames = SubResource( 5 )
 animation = "seed"
 script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plant"]
 position = Vector2( -1, 0 )
 shape = SubResource( 6 )

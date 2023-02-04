@@ -1,6 +1,8 @@
 extends Node2D
 
 var plantScene = load("res://scenes/plant.tscn")
+var planetRadius = 0
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,6 +10,7 @@ var plantScene = load("res://scenes/plant.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	planetRadius = $planet.texture.get_height() / 2
 	pass # Replace with function body.
 
 
@@ -29,7 +32,12 @@ func _process(delta):
 	
 func plant_seed():
 	var plant = plantScene.instance()
+	var angle = $planet.rotation
+	plant.scale = Vector2(0.2, 0.2)
+	plant.position = Vector2(planetRadius*cos(angle), planetRadius*sin(angle))
+	plant.rotation = angle
 	$planet.add_child(plant)
+	print(angle)
 		
 	
 func _input(event):
