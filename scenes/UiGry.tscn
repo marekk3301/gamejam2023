@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Label.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 16.0
+margin_top = 13.0
+margin_right = 24.0
+margin_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+align = 2
+valign = 1
+script = ExtResource( 1 )

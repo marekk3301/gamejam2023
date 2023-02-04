@@ -6,9 +6,9 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "_on_ParentControl_resized")
 func _process(delta):
 	if growing:
-		self.energy += 0.2		
+		self.energy += 0.05		
 	else:
-		self.energy -= 0.2		
+		self.energy -= 0.05		
 
 	if self.energy >= 0.8 or self.energy <= 0.07:
 		growing = !growing
