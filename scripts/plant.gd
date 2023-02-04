@@ -18,6 +18,8 @@ func nextGrowthStage():
 		$PlantSprite.play("stage1")
 	elif animation_stage ==2:
 		$PlantSprite.play("stage2")
+	elif animation_stage ==3:
+		$PlantSprite.play("stage3")
 	else:
 		pass
 
