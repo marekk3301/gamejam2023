@@ -25,6 +25,7 @@ func _process(delta):
 		$player.scale = Vector2(-1, 1)
 		$player.play("left")
 	else:
+		$player.scale = Vector2(1, 1)
 		$player.play("idle")
 		
 	$planet.rotate(direction*delta)
