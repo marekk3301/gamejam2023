@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/1x/player_right.png" type="Texture" id=4]
 [ext_resource path="res://assets/1x/kosmonauta_move1.png" type="Texture" id=5]
 [ext_resource path="res://scripts/player.gd" type="Script" id=6]
-[ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/1x/sun.png" type="Texture" id=7]
 [ext_resource path="res://assets/1x/kosmonauta3.png" type="Texture" id=8]
 [ext_resource path="res://assets/1x/kosmonauta2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/main.gd" type="Script" id=10]
@@ -34,6 +34,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -47,9 +55,6 @@ frames = SubResource( 1 )
 animation = "right"
 script = ExtResource( 6 )
 
-[node name="plant" parent="." instance=ExtResource( 7 )]
-position = Vector2( 219, 178 )
-
 [node name="starfield" parent="." instance=ExtResource( 15 )]
 position = Vector2( 201, 20 )
 z_index = -1
@@ -59,3 +64,16 @@ position = Vector2( 961, 540.5 )
 scale = Vector2( 1.03958, 1.05648 )
 z_index = -2
 texture = ExtResource( 14 )
+
+[node name="Sun" type="Area2D" parent="."]
+position = Vector2( 110.25, 95.25 )
+scale = Vector2( 0.406482, 0.384259 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sun"]
+position = Vector2( -29.5216, -29.5216 )
+scale = Vector2( 0.890661, 0.890661 )
+frames = SubResource( 2 )
+flip_h = true
+
+[node name="SunRay" type="CollisionPolygon2D" parent="Sun"]
+polygon = PoolVector2Array( 33.8269, -141.181, 784.169, -78.7229, 407.768, 553.663, -121.162, 48.7952 )
