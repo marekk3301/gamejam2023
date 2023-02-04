@@ -63,6 +63,7 @@ position = Vector2( 1984, 544 )
 amount = 1024
 lifetime = 76.43
 preprocess = 100.0
+visibility_rect = Rect2( -1000, -500, 1000, 1000 )
 process_material = SubResource( 1 )
 texture = ExtResource( 2 )
 
@@ -72,7 +73,7 @@ position = Vector2( 2288, 544 )
 amount = 128
 lifetime = 90.14
 preprocess = 10.0
-visibility_rect = Rect2( -500, -100, 200, 200 )
+visibility_rect = Rect2( -1500, -500, 1000, 1000 )
 process_material = SubResource( 2 )
 texture = ExtResource( 1 )
 
@@ -82,5 +83,6 @@ position = Vector2( 1984, 544 )
 amount = 1024
 lifetime = 76.43
 preprocess = 5.0
+visibility_rect = Rect2( -1000, -500, 1000, 1000 )
 process_material = SubResource( 3 )
 texture = ExtResource( 3 )
