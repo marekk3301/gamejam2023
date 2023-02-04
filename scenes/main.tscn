@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/1x/player_right.png" type="Texture" id=4]
 [ext_resource path="res://assets/1x/player_left.png" type="Texture" id=5]
 [ext_resource path="res://scripts/player.gd" type="Script" id=6]
-[ext_resource path="res://scenes/plant.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/main.gd" type="Script" id=7]
 [ext_resource path="res://assets/1x/kosmonauta3.png" type="Texture" id=8]
 [ext_resource path="res://assets/1x/kosmonauta2.png" type="Texture" id=9]
 
@@ -28,10 +28,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
-
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="planet" parent="." instance=ExtResource( 1 )]
 position = Vector2( 415, 218 )
@@ -42,9 +40,3 @@ position = Vector2( 414, 49 )
 frames = SubResource( 1 )
 animation = "right"
 script = ExtResource( 6 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
-anims/idle = SubResource( 2 )
-
-[node name="plant" parent="." instance=ExtResource( 7 )]
-position = Vector2( 231, 166 )

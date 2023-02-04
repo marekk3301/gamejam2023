@@ -15,14 +15,12 @@ func _process(delta):
 	var direction = 0
 	if Input.is_action_pressed("ui_left"):
 		direction += 1
-	if Input.is_action_pressed("ui_right"):
+		$player.play("left")
+	elif Input.is_action_pressed("ui_right"):
 		direction = -1
+		$player.play("right")
+	else:
+		$player.play("idle")
 		
 	$planet.rotate(direction*delta)
-	if direction == 0:
-		$player.play("idle")
-	elif direction == 1:
-		$player.play("left")
-	else:
-		$player.play("right")
 		
