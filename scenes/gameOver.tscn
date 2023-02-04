@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/1x/ziema.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Ziema.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/starfield.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/fonts/brush in space.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://scenes/Label.gd" type="Script" id=8]
+[ext_resource path="res://scenes/gameOver.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 118
@@ -19,6 +20,7 @@ default_font = SubResource( 4 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, 1061 )
+script = ExtResource( 9 )
 
 [node name="starfield" parent="." instance=ExtResource( 6 )]
 position = Vector2( 201, -1028 )
