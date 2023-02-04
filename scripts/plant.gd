@@ -54,15 +54,11 @@ func _input(event):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
-<<<<<<< Updated upstream
+
 		if animation_stage < 4:
 			var seedYield = rng.randf_range(0, 1)
-			GlobalVariables.increment_Seed_Count_by(seedYield)
-=======
-		if animation_stage < 3:
-			var seedYield = rng.randi_range(0, 1)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
->>>>>>> Stashed changes
+
 		else:
 			var seedYield = rng.randi_range(0, 2)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
