@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/main.gd" type="Script" id=2]
+[ext_resource path="res://assets/1x/player.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/player_right.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/player_left.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="planet" parent="." instance=ExtResource( 1 )]
+position = Vector2( 415, 218 )
+scale = Vector2( 3.19697, 2.905 )
+
+[node name="player" type="AnimatedSprite" parent="."]
+position = Vector2( 414, 49 )
+frames = SubResource( 1 )
+animation = "right"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+anims/idle = SubResource( 2 )
