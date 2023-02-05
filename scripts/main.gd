@@ -5,7 +5,7 @@ var planetRadius = 0
 
 var oxygenLevel = 100
 var initialOxygenFill = true
-var initialOxygenFillCount = 100
+var initialOxygenFillCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

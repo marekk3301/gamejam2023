@@ -54,6 +54,7 @@ func _process(delta):
 			if GlobalVariables.get_cracksOnCoreCount() == 2:
 				get_tree().change_scene("res://scenes/gameOver.tscn")
 			else:	
+				print(GlobalVariables.get_cracksOnCoreCount(), isCut, animation_stage)
 				GlobalVariables.incrementCracksOnCore()
 				lastStageTimer = -1
 			
@@ -73,11 +74,10 @@ func _input(event):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
-		print(animation_stage)
+	
 		var seedYield = 0;
 		
-		if animation_stage >= 5:			
-			isCut = true
+		isCut = true
 
 		if animation_stage < 4:
 			
@@ -89,7 +89,6 @@ func _input(event):
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 		else:
 			seedYield = 0
-			print("dupa")
 
 		GlobalVariables.remove_from_activePlantList(self)
 			  
