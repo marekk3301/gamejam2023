@@ -77,7 +77,7 @@ func _input(event):
 		if animation_stage >= 5:			
 			isCut = true
 
-		if animation_stage < 4:
+		elif animation_stage < 4:
 			var seedYield = rng.randf_range(0, 2)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 
