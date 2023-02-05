@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://assets/1x/core_stage3a.png" type="Texture" id=39]
 [ext_resource path="res://scenes/menuPlayerFly.gd" type="Script" id=40]
 [ext_resource path="res://assets/music/sounds/steps_sound.mp3" type="AudioStream" id=41]
+[ext_resource path="res://assets/music/sounds/planting_sound.mp3" type="AudioStream" id=42]
 
 [sub_resource type="Theme" id=8]
 
@@ -179,7 +180,7 @@ position = Vector2( 945, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 12 )
 animation = "Idle"
-frame = 1
+frame = 2
 speed_scale = 0.5
 playing = true
 script = ExtResource( 40 )
@@ -317,3 +318,9 @@ texture = ExtResource( 25 )
 [node name="steps_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 41 )
 volume_db = 10.0
+
+[node name="plant_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 42 )
+volume_db = 20.0
+
+[connection signal="finished" from="plant_sound" to="." method="_on_plant_sound_finished"]

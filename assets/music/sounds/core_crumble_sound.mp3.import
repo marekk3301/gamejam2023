@@ -11,5 +11,5 @@ dest_files=[ "res://.import/core_crumble_sound.mp3-a7c838117957ec20fde577a2a6d9f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

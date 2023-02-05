@@ -11,5 +11,5 @@ dest_files=[ "res://.import/cut_plant_sound.mp3-be18611ff9ec14985fe3e9ee26e6ec68
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

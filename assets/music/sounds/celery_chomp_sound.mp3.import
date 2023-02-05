@@ -11,5 +11,5 @@ dest_files=[ "res://.import/celery_chomp_sound.mp3-4c06357ae68b5d5f3dd2bfb3ed683
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

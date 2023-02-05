@@ -7,6 +7,7 @@ var oxygenLevel = 100
 var initialOxygenFill = true
 var initialOxygenFillCount = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	planetRadius = $planet.texture.get_height() / 2
@@ -98,6 +99,7 @@ func plant_seed():
 		$planet.add_child(plant)
 		GlobalVariables.add_to_activePlantList(plant)
 		GlobalVariables.decrement_Seed_Count()
+		$plant_sound.play()
 
 
 func _input(event):
