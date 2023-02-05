@@ -58,10 +58,10 @@ func _process(delta):
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
 
-		var oxygenLevelIncrease = (0.1*mediumOxygenInput + 0.5*bigOxygenInput + 1)*delta;
+		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1)*delta;
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= delta*1.5
+		oxygenLevel -= delta*1.8
 		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
