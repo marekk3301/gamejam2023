@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cut_plant_sound.mp3-be18611ff9ec14985fe3e9ee26e6ec68.mp3str"
+
+[deps]
+
+source_file="res://assets/music/sounds/cut_plant_sound.mp3"
+dest_files=[ "res://.import/cut_plant_sound.mp3-be18611ff9ec14985fe3e9ee26e6ec68.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
