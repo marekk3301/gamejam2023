@@ -9,3 +9,8 @@ https://superbanan.itch.io/space-sprouts
 # Download game
 
 https://globalgamejam.org/2023/games/roots-5
+
+# Attribution
+
+Music generated using <a href="https://mubert.com/">Mubert</a> 
+Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=26360">Pixabay</a>
