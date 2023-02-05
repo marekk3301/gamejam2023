@@ -4,7 +4,8 @@ signal hit
 
 onready var timer = get_node("Timer")
 var rng = RandomNumberGenerator.new()
-var time = rng.randi_range(2, 5)
+var time = 1
+#rng.randi_range(2, 5)
 var animation_stage = 0
 var growthRate = 0
 var isCut = false
@@ -53,8 +54,6 @@ func _on_plant_area_entered(area):
 
 func _on_plant_area_exited(area):
 	CollidingBody = null
-	if animation_stage == 5:
-		isCut = true
 
 
 func _input(event):
@@ -62,6 +61,9 @@ func _input(event):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
+		
+		if animation_stage == 5:
+			isCut = true
 
 		if animation_stage < 4:
 			var seedYield = rng.randf_range(0, 2)
@@ -75,6 +77,11 @@ func _input(event):
 			  
 
 func _on_timer_timeout():
-	if !isCut:
+	if GlobalVariables.cracksOnCore >= 2:
 		get_tree().change_scene("res://scenes/gameOver.tscn")
-	isCut = false
+	if isCut && animation_stage ==5:
+		timer.wait_time = 3
+		isCut = false
+	elif !isCut && animation_stage == 5:
+		GlobalVariables.incrementCracksOnCore()
+		timer.wait_time = 3

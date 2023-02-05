@@ -45,9 +45,8 @@ func _process(delta):
 	var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
 	
 	if mediumOxygenInput > 0:
-		print(mediumOxygenInput)
-		print(bigOxygenInput)
-	else: print("none")
+		pass
+	
 	
 	#$TextureProgress.value += 1
 
