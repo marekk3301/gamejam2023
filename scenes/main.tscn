@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/1x/core_stage3.png" type="Texture" id=32]
 [ext_resource path="res://assets/1x/core_stage2.png" type="Texture" id=33]
 [ext_resource path="res://scenes/Core.gd" type="Script" id=34]
+[ext_resource path="res://assets/1x/core_stage1a.png" type="Texture" id=35]
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
@@ -42,7 +43,7 @@ animations = [ {
 "name": "CoreIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "Corestage1",
 "speed": 5.0
