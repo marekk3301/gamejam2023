@@ -89,10 +89,12 @@ func _input(event):
 			seedYield = rng.randi_range(1, 4)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 			$cut_tree_sound.play()
+			$cut_plant_sound.stop()
 		
 		else:
 			seedYield = 0
 			$cut_tree_sound.play()
+			$cut_plant_sound.stop()
 			
 		GlobalVariables.remove_from_activePlantList(self)
 			  
