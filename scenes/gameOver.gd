@@ -8,6 +8,8 @@ extends Node2D
 func _process(delta):
 	if Input.is_action_pressed('reset'):
 		GlobalVariables.set_Seed_Count(5)
+		GlobalVariables.clearActivePlantList()
+		GlobalVariables.reset_cracksOnCoreCount()
 		get_tree().change_scene("res://scenes/mainMenu.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
