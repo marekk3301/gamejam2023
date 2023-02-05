@@ -3,8 +3,7 @@ extends Area2D
 signal hit
 
 var rng = RandomNumberGenerator.new()
-var time = 1
-#rng.randi_range(2, 5)
+var time = rng.randi_range(2, 5)
 var animation_stage = 0
 var growthRate = 0
 var isCut = false
@@ -15,8 +14,7 @@ var CollidingBody = null
 
 func nextGrowthStage():
 	animation_stage += 1
-	time = 1
-	#rng.randf_range(2, 5)
+	time = rng.randf_range(2, 5)
 	if animation_stage == 1:
 		$PlantSprite.play("stage1")
 	elif animation_stage ==2:
@@ -51,7 +49,7 @@ func _process(delta):
 	if lastStageTimer <= 0 && lastStageTimer != -1:
 		if isCut:	
 			isCut = false
-			lastStageTimer = -1
+			lastStageTimer = -1			
 		else:
 			if GlobalVariables.get_cracksOnCoreCount() == 2:
 				get_tree().change_scene("res://scenes/gameOver.tscn")
@@ -75,8 +73,8 @@ func _input(event):
 		hide()
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
-		
-		if animation_stage == 5:
+		print(animation_stage)
+		if animation_stage >= 5:			
 			isCut = true
 
 		if animation_stage < 4:
