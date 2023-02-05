@@ -76,10 +76,16 @@ func _process(delta):
 		# + 0.9 makes sure the oxygen still decreases when the player has 0 seeds
 		var oxygenLevelDecrease = 1.8 * (seedCount/5 + 0.9) * 0.04
 		
+		
+		if oxygenLevel > 15 && $beep_sound.playing:
+			$beep_sound.stop()
+		elif oxygenLevel <= 15 && $beep_sound.playing == false:
+			$beep_sound.play()
+		
 		oxygenLevel += oxygenLevelIncrease
 		oxygenLevel -= oxygenLevelDecrease
-		if oxygenLevel > 100: oxygenLevel = 100
-		
+		if oxygenLevel > 100: 
+			oxygenLevel = 100
 		if oxygenLevel <= 0:
 			get_tree().change_scene("res://scenes/gameOver.tscn")
 		
