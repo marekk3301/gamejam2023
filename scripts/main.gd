@@ -2,8 +2,8 @@ extends Node2D
 
 var plantScene = load("res://scenes/plant.tscn")
 var planetRadius = 0
-var oxygenLevel = 0
 
+var oxygenLevel = 100
 var initialOxygenFill = true
 var initialOxygenFillCount = 0
 
@@ -44,23 +44,23 @@ func _process(delta):
 		$AudioStreamPlayer.play()
 
 	if initialOxygenFill:
-		if initialOxygenFillCount <= 100:
+		if initialOxygenFillCount < oxygenLevel:
 			get_node("%TextureProgress").value += 1
 			get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
 			initialOxygenFillCount += 1
-		else: 
-			initialOxygenFill = false
+			if initialOxygenFillCount == 100: 
+				initialOxygenFill = false
 	else:
 		var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
 		
-		oxygenLevel = GlobalVariables.get_oxygen_level()
-		var oxygenLevelIncrease = mediumOxygenInput + 3*bigOxygenInput
+
+		var oxygenLevelIncrease = 0.3*mediumOxygenInput + bigOxygenInput
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= 1
+		oxygenLevel -= delta*1.2
 		
-		if oxygenLevel <= 0:		
+		if oxygenLevel <= 0:
 			get_tree().change_scene("res://scenes/gameOver.tscn")
 		
 		get_node("%TextureProgress").value = oxygenLevel
