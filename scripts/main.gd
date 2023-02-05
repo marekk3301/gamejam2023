@@ -53,13 +53,14 @@ func _process(delta):
 				initialOxygenFill = false
 	else:
 		var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
-		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
+		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
 
-		var oxygenLevelIncrease = 0.3*mediumOxygenInput + bigOxygenInput
+		var oxygenLevelIncrease = 0.1*mediumOxygenInput + 0.3*bigOxygenInput
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= delta*1.2
+		oxygenLevel -= delta*1.4
+		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
 			get_tree().change_scene("res://scenes/gameOver.tscn")
