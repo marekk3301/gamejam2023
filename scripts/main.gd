@@ -64,11 +64,6 @@ func _process(delta):
 			get_tree().change_scene("res://scenes/gameOver.tscn")
 		
 		get_node("%TextureProgress").value = oxygenLevel
-
-	
-
-	if mediumOxygenInput > 0:
-		pass
 	
 	
 	#$TextureProgress.value += 1
