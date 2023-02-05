@@ -47,8 +47,8 @@ func _process(delta):
 	$planet2/Core.rotate(delta*-0.05*direction)
 	
 
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
+	if $background_music.playing == false:
+		$background_music.play()
 
 	if initialOxygenFill:
 		if initialOxygenFillCount < oxygenLevel:

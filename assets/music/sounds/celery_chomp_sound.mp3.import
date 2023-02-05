@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/celery_chomp_sound.mp3-4c06357ae68b5d5f3dd2bfb3ed683038.mp3str"
+
+[deps]
+
+source_file="res://assets/music/sounds/celery_chomp_sound.mp3"
+dest_files=[ "res://.import/celery_chomp_sound.mp3-4c06357ae68b5d5f3dd2bfb3ed683038.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
