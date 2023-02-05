@@ -31,13 +31,19 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		direction += 1
 		$player.get_node("playerSprite").play("walk")
+		if $steps_sound.playing == false:
+			$steps_sound.play()
 	elif Input.is_action_pressed("ui_right"):
 		direction = -1
 		$player.scale = Vector2(-1, 1)
 		$player.get_node("playerSprite").play("walk")
+		if $steps_sound.playing == false:
+			$steps_sound.play()
 	else:
 		$player.scale = Vector2(1, 1)
 		$player.get_node("playerSprite").play("idle")
+		if $steps_sound.playing == true:
+			$steps_sound.stop()
 
 	$planet.rotate(direction*delta)
 	$planet2.rotate(direction*delta)
