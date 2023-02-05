@@ -83,7 +83,7 @@ func _input(event):
 			
 			seedYield = rng.randf_range(0, 2)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
-			$cut_plant_sound.play()
+			#$cut_plant_sound.play()
 		
 		elif animation_stage == 4 or animation_stage == 5:
 			seedYield = rng.randi_range(1, 4)

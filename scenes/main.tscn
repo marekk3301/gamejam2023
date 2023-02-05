@@ -183,7 +183,6 @@ position = Vector2( 945, 450 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 12 )
 animation = "Idle"
-frame = 1
 speed_scale = 0.5
 playing = true
 script = ExtResource( 40 )
