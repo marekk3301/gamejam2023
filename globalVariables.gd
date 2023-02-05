@@ -2,7 +2,7 @@ extends Node
 
 var seedCount = 5
 var cracksOnCore = 0
-
+var score = 0
 var activePlantList = []
 
 
@@ -21,6 +21,13 @@ func increment_Seed_Count():
 func increment_Seed_Count_by(v):
 	seedCount += v
 
+func increment_Score(v):
+	score += v
+func set_Score():
+	score = 0
+	
+func get_Score():
+	return score
 
 func decrement_Seed_Count():
 	seedCount -= 1
