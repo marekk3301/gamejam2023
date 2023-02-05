@@ -5,7 +5,7 @@ var planetRadius = 0
 
 var oxygenLevel = 100
 var initialOxygenFill = true
-var initialOxygenFillCount = 0
+var initialOxygenFillCount = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var direction = 0
+	if Input.is_action_pressed("ui_help"):
+		$help.visible =  true
+	else:
+		$help.visible =  false
 	if Input.is_action_pressed('reset'):
 		GlobalVariables.set_Seed_Count(5)
 		GlobalVariables.clearActivePlantList()
