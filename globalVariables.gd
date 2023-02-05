@@ -48,6 +48,9 @@ func getPlantNumberInType(type):
 	
 func clearActivePlantList():
 	activePlantList = []
+
+func reset_cracksOnCoreCount():
+	cracksOnCore = 0
 	
 func get_cracksOnCoreCount():
 	return cracksOnCore
