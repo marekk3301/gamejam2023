@@ -12,7 +12,8 @@ config_version=4
 
 config/name="GameJam 2023 - Planet Jurney Roots itp"
 run/main_scene="res://scenes/mainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icons/game_icon_2.png"
+config/windows_native_icon="res://assets/icons/game_icon_2.ico"
 
 [autoload]
 
