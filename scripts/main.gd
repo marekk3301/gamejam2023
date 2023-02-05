@@ -16,6 +16,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var direction = 0
+	if Input.is_action_pressed("ui_help"):
+		$help.visible =  true
 	if Input.is_action_pressed('reset'):
 		GlobalVariables.set_Seed_Count(5)
 		GlobalVariables.clearActivePlantList()
