@@ -58,10 +58,14 @@ func _process(delta):
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
 		var seedCount = GlobalVariables.get_Seed_Count()
-		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1);
+		
+		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1) * 0.05
+		# seedCount / 5 -> decreseas the influence of seedCount on decrease
+		# + 0.9 makes sure the oxygen still decreases when the player has 0 seeds
+		var oxygenLevelDecrease = 1.8 * (seedCount/5 + 0.9) * 0.04
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= 1.8
+		oxygenLevel -= oxygenLevelDecrease
 		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
