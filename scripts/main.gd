@@ -67,6 +67,16 @@ func _process(delta):
 
 	
 
+	if mediumOxygenInput > 0:
+		pass
+	
+	
+	#$TextureProgress.value += 1
+
+	get_node("%TextureProgress").value += 1
+	get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
+
+
 func plant_seed():
 	if GlobalVariables.get_Seed_Count() > 0:
 		var plant = plantScene.instance()
