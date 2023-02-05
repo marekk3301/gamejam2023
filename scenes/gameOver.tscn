@@ -129,7 +129,7 @@ position = Vector2( 328, -523 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 3
+frame = 2
 speed_scale = 0.5
 playing = true
 script = ExtResource( 8 )
@@ -149,12 +149,13 @@ text = "Your Score"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="."]
 anchor_right = 0.5
-margin_left = 553.0
-margin_top = -800.0
-margin_right = 569.0
-margin_bottom = -716.0
+margin_left = 548.0
+margin_top = -808.0
+margin_right = 564.0
+margin_bottom = -724.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_scale = Vector2( 1, 1.07164 )
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer3"]

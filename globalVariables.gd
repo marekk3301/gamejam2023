@@ -4,6 +4,7 @@ var seedCount = 5
 var cracksOnCore = 0
 var score = 0
 var activePlantList = []
+var scoreCheck = 0
 
 
 func get_Seed_Count():
@@ -12,8 +13,11 @@ func get_Seed_Count():
 
 func set_Seed_Count(var v):
 	seedCount = v
-
-
+func get_scoreCheck(v):
+	seedCount = v
+func set_scoreCheck(v):
+	seedCount = v
+	
 func increment_Seed_Count():
 	seedCount += 1
 
