@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/core_crumble_sound.mp3-a7c838117957ec20fde577a2a6d9ffaf.mp3str"
+
+[deps]
+
+source_file="res://assets/music/sounds/core_crumble_sound.mp3"
+dest_files=[ "res://.import/core_crumble_sound.mp3-a7c838117957ec20fde577a2a6d9ffaf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
