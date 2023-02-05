@@ -18,6 +18,8 @@ func _process(delta):
 	var direction = 0
 	if Input.is_action_pressed('reset'):
 		GlobalVariables.set_Seed_Count(5)
+		GlobalVariables.clearActivePlantList()
+		GlobalVariables.reset_cracksOnCoreCount()
 		get_tree().change_scene("res://scenes/main.tscn")
 		
 	if Input.is_action_pressed("ui_cancel"):
@@ -55,20 +57,17 @@ func _process(delta):
 		var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
-
-		var oxygenLevelIncrease = 0.1*mediumOxygenInput + 0.3*bigOxygenInput
+		var seedCount = GlobalVariables.get_Seed_Count()
+		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1);
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= delta*1.4
+		oxygenLevel -= 1.8
 		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
 			get_tree().change_scene("res://scenes/gameOver.tscn")
 		
 		get_node("%TextureProgress").value = oxygenLevel
-	
-	
-	#$TextureProgress.value += 1
 
 	get_node("%TextureProgress").value += 1
 	get_node("%TextureProgress").set_size(Vector2(0.1,0.1))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -34,6 +34,11 @@
 [ext_resource path="res://assets/1x/core_stage3.png" type="Texture" id=32]
 [ext_resource path="res://assets/1x/core_stage2.png" type="Texture" id=33]
 [ext_resource path="res://scenes/Core.gd" type="Script" id=34]
+[ext_resource path="res://assets/1x/core_stage1a.png" type="Texture" id=35]
+[ext_resource path="res://assets/1x/core_stage2a.png" type="Texture" id=36]
+[ext_resource path="res://assets/1x/core_stage3b.png" type="Texture" id=37]
+[ext_resource path="res://assets/1x/core_stage2b.png" type="Texture" id=38]
+[ext_resource path="res://assets/1x/core_stage3a.png" type="Texture" id=39]
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
@@ -42,17 +47,17 @@ animations = [ {
 "name": "CoreIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 31 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "Corestage1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 36 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "Corestage2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 39 ), ExtResource( 37 ) ],
 "loop": true,
 "name": "Corestage3",
 "speed": 5.0
@@ -180,6 +185,7 @@ margin_bottom = 15.0
 unique_name_in_owner = true
 margin_right = 283.0
 margin_bottom = 122.0
+max_value = 105.0
 texture_under = ExtResource( 22 )
 texture_over = ExtResource( 23 )
 texture_progress = ExtResource( 21 )
