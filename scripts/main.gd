@@ -5,7 +5,7 @@ var planetRadius = 0
 
 var oxygenLevel = 100
 var initialOxygenFill = true
-var initialOxygenFillCount = 0
+var initialOxygenFillCount = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var direction = 0
+	if Input.is_action_pressed("ui_help"):
+		$help.visible =  true
+	else:
+		$help.visible =  false
 	if Input.is_action_pressed('reset'):
 		GlobalVariables.set_Seed_Count(5)
 		GlobalVariables.clearActivePlantList()
@@ -58,10 +62,14 @@ func _process(delta):
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
 		var seedCount = GlobalVariables.get_Seed_Count()
-		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1);
+		
+		var oxygenLevelIncrease = (0.2*mediumOxygenInput + 0.6*bigOxygenInput + 1) * 0.05
+		# seedCount / 5 -> decreseas the influence of seedCount on decrease
+		# + 0.9 makes sure the oxygen still decreases when the player has 0 seeds
+		var oxygenLevelDecrease = 1.8 * (seedCount/5 + 0.9) * 0.04
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= 1.8
+		oxygenLevel -= oxygenLevelDecrease
 		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
