@@ -1,24 +1,10 @@
 extends Node
 
 var seedCount = 5
-var oxygenLevel = 100
-var maxOxygenLevel = 100
 var cracksOnCore = 0
 
 var activePlantList = []
 
-
-func set_oxygen_level(var v):
-	oxygenLevel = v
-	
-func increment_oxygen_level_by(var v):
-	oxygenLevel += v
-	
-func decrement_oxygen_level_by(var v):
-	oxygenLevel -= v
-	
-func get_oxygen_level():
-	return oxygenLevel
 
 func get_Seed_Count():
 	return seedCount
@@ -59,6 +45,9 @@ func getPlantNumberInType(type):
 			if plant.animation_stage == type:
 				count += 1
 	return count
+	
+func clearActivePlantList():
+	activePlantList = []
 	
 func get_cracksOnCoreCount():
 	return cracksOnCore
