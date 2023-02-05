@@ -38,6 +38,7 @@ func _process(delta):
 	$PlanetLight.rotate(direction*delta)
 	$Sun.rotate(delta*0.05)
 	$Moon.rotate(delta*-0.05)
+	$planet2/Core.rotate(delta*-0.05*direction)
 	
 
 	if $AudioStreamPlayer.playing == false:

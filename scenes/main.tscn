@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scenes/planet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=2]
@@ -29,6 +29,34 @@
 [ext_resource path="res://assets/1x/kosmonauta_sleep1.png" type="Texture" id=27]
 [ext_resource path="res://assets/1x/kosmonauta_sleep2.png" type="Texture" id=28]
 [ext_resource path="res://assets/1x/kosmonauta_sleep3.png" type="Texture" id=29]
+[ext_resource path="res://assets/1x/core.png" type="Texture" id=30]
+[ext_resource path="res://assets/1x/core_stage1.png" type="Texture" id=31]
+[ext_resource path="res://assets/1x/core_stage3.png" type="Texture" id=32]
+[ext_resource path="res://assets/1x/core_stage2.png" type="Texture" id=33]
+[ext_resource path="res://scenes/Core.gd" type="Script" id=34]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "CoreIdle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "Corestage1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "Corestage2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "Corestage3",
+"speed": 5.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=3]
 
@@ -74,6 +102,12 @@ position = Vector2( 415, 218 )
 scale = Vector2( 0.55, 0.55 )
 z_index = 1
 
+[node name="Core" type="AnimatedSprite" parent="planet2"]
+z_index = 2
+frames = SubResource( 7 )
+animation = "CoreIdle"
+script = ExtResource( 34 )
+
 [node name="player" type="Area2D" parent="."]
 script = ExtResource( 6 )
 
@@ -96,7 +130,7 @@ z_index = -1
 [node name="PlanetLight" type="Light2D" parent="."]
 position = Vector2( 961, 540.5 )
 scale = Vector2( 1.03958, 1.05648 )
-z_index = 8
+z_index = 6
 texture = ExtResource( 18 )
 texture_scale = 4.89
 script = ExtResource( 19 )
@@ -173,7 +207,7 @@ valign = 1
 script = ExtResource( 3 )
 
 [node name="PlantStage1" type="Sprite" parent="CanvasLayer/HBoxContainer/Label"]
-position = Vector2( -36, 36.5 )
+position = Vector2( -37.5, 158.5 )
 scale = Vector2( 1.56349, 1.56349 )
 texture = ExtResource( 20 )
 
