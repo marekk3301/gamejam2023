@@ -29,6 +29,8 @@ func nextGrowthStage():
 		$PlantSprite.play("stage4")
 	elif animation_stage ==5:
 		$PlantSprite.play("stage5")
+	elif animation_stage ==6:
+		$PlantSprite.play("stage6")
 		timer.start()
 	else:
 		pass
@@ -77,6 +79,7 @@ func _input(event):
 			  
 
 func _on_timer_timeout():
+
 	if GlobalVariables.cracksOnCore >= 2:
 		get_tree().change_scene("res://scenes/gameOver.tscn")
 	if isCut && animation_stage ==5:
@@ -85,3 +88,5 @@ func _on_timer_timeout():
 	elif !isCut && animation_stage == 5:
 		GlobalVariables.incrementCracksOnCore()
 		timer.wait_time = 3
+
+

@@ -2,10 +2,13 @@ extends Node2D
 
 var plantScene = load("res://scenes/plant.tscn")
 var planetRadius = 0
+var oxygenLevel = 0
+
+var initialOxygenFill = true
+var initialOxygenFillCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var oxygenLevel = 0
 	planetRadius = $planet.texture.get_height() / 2
 	pass # Replace with function body.
 
@@ -40,10 +43,30 @@ func _process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 
+	if initialOxygenFill:
+		if initialOxygenFillCount <= 100:
+			get_node("%TextureProgress").value += 1
+			get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
+			initialOxygenFillCount += 1
+		else: 
+			initialOxygenFill = false
+	else:
+		var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
+		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
+		
+		oxygenLevel = GlobalVariables.get_oxygen_level()
+		var oxygenLevelIncrease = mediumOxygenInput + 3*bigOxygenInput
+		
+		oxygenLevel += oxygenLevelIncrease
+		oxygenLevel -= 1
+		
+		if oxygenLevel <= 0:		
+			get_tree().change_scene("res://scenes/gameOver.tscn")
+		
+		get_node("%TextureProgress").value = oxygenLevel
 
-	var mediumOxygenInput = GlobalVariables.getPlantNumberInType(3)
-	var bigOxygenInput = GlobalVariables.getPlantNumberInType(4)
 	
+
 	if mediumOxygenInput > 0:
 		pass
 	
@@ -52,6 +75,7 @@ func _process(delta):
 
 	get_node("%TextureProgress").value += 1
 	get_node("%TextureProgress").set_size(Vector2(0.1,0.1))
+
 
 func plant_seed():
 	if GlobalVariables.get_Seed_Count() > 0:
