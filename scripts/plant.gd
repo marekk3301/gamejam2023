@@ -74,16 +74,20 @@ func _input(event):
 		emit_signal("hit")
 		$CollisionShape2D.set_deferred("disabled", true)
 		print(animation_stage)
+		var seedYield = 0;
 		if animation_stage >= 5:			
 			isCut = true
 
 		if animation_stage < 4:
-			var seedYield = rng.randf_range(0, 2)
+			seedYield = rng.randf_range(0, 2)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
 
-		else:
-			var seedYield = rng.randi_range(0, 3)
+		elif animation_stage == 5:
+			seedYield = rng.randi_range(1, 4)
 			GlobalVariables.increment_Seed_Count_by(int(seedYield))
+		else:
+			seedYield = 0
+			print("dupa")
 
 		GlobalVariables.remove_from_activePlantList(self)
 			  

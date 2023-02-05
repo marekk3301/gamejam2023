@@ -56,17 +56,17 @@ func _process(delta):
 		var bigOxygenInput = GlobalVariables.getPlantNumberInType(4) + GlobalVariables.getPlantNumberInType(5)
 		
 
-		var oxygenLevelIncrease = 0.1*mediumOxygenInput + 0.3*bigOxygenInput
+		var oxygenLevelIncrease = (0.1*mediumOxygenInput + 0.5*bigOxygenInput + 1)*delta;
 		
 		oxygenLevel += oxygenLevelIncrease
-		oxygenLevel -= delta*1.4
+		oxygenLevel -= delta*1.5
 		if oxygenLevel > 100: oxygenLevel = 100
 		
 		if oxygenLevel <= 0:
 			get_tree().change_scene("res://scenes/gameOver.tscn")
 		
 		get_node("%TextureProgress").value = oxygenLevel
-	
+	print(oxygenLevel)
 	
 	#$TextureProgress.value += 1
 
