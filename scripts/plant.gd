@@ -2,23 +2,21 @@ extends Area2D
 
 signal hit
 
-onready var timer = get_node("Timer")
 var rng = RandomNumberGenerator.new()
 var time = 1
 #rng.randi_range(2, 5)
 var animation_stage = 0
 var growthRate = 0
 var isCut = false
+var lastStageTimer = -1
 
 var CollidingBody = null
 
-func _ready():
-	timer.wait_time = 3
-	timer.connect("timeout", self, "_on_timer_timeout")
 
 func nextGrowthStage():
 	animation_stage += 1
-	time = rng.randf_range(2, 5)
+	time = 1
+	#rng.randf_range(2, 5)
 	if animation_stage == 1:
 		$PlantSprite.play("stage1")
 	elif animation_stage ==2:
@@ -31,7 +29,7 @@ func nextGrowthStage():
 		$PlantSprite.play("stage5")
 	elif animation_stage ==6:
 		$PlantSprite.play("stage6")
-		timer.start()
+		lastStageTimer = 3
 	else:
 		pass
 
@@ -47,6 +45,20 @@ func _process(delta):
 			time = time - (delta * PI * growthRate)
 		else:
 			nextGrowthStage()
+			
+	if lastStageTimer > 0:
+		lastStageTimer -= delta * 3	
+	if lastStageTimer <= 0 && lastStageTimer != -1:
+		if isCut:	
+			isCut = false
+			lastStageTimer = -1
+		else:
+			if GlobalVariables.get_cracksOnCoreCount() == 2:
+				get_tree().change_scene("res://scenes/gameOver.tscn")
+			else:	
+				GlobalVariables.incrementCracksOnCore()
+				lastStageTimer = -1
+			
 
 
 func _on_plant_area_entered(area):
@@ -77,16 +89,4 @@ func _input(event):
 
 		GlobalVariables.remove_from_activePlantList(self)
 			  
-
-func _on_timer_timeout():
-
-	if GlobalVariables.cracksOnCore >= 2:
-		get_tree().change_scene("res://scenes/gameOver.tscn")
-	if isCut && animation_stage ==5:
-		timer.wait_time = 3
-		isCut = false
-	elif !isCut && animation_stage == 5:
-		GlobalVariables.incrementCracksOnCore()
-		timer.wait_time = 3
-
 

@@ -67,8 +67,8 @@ func _process(delta):
 
 	
 
-	if mediumOxygenInput > 0:
-		pass
+	#if mediumOxygenInput > 0:
+		#pass
 	
 	
 	#$TextureProgress.value += 1
