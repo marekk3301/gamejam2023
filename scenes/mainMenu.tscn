@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/brush in space.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/1x/kosmonauta1.png" type="Texture" id=11]
 [ext_resource path="res://assets/1x/kosmonauta2.png" type="Texture" id=12]
 [ext_resource path="res://scenes/menuPlayerFly.gd" type="Script" id=13]
+[ext_resource path="res://assets/1x/space_sprouds_logo_2.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -100,11 +101,11 @@ texture = ExtResource( 5 )
 script = ExtResource( 7 )
 
 [node name="menuPlayerFly" type="AnimatedSprite" parent="."]
-position = Vector2( 328, -523 )
+position = Vector2( 540, -361 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
+frame = 3
 speed_scale = 0.5
 playing = true
 script = ExtResource( 13 )
@@ -113,6 +114,17 @@ script = ExtResource( 13 )
 stream = ExtResource( 9 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -36.0
+margin_right = 34.0
+
+[node name="SpaceSproudsLogo2" type="Sprite" parent="VBoxContainer2"]
+position = Vector2( 395, -586 )
+scale = Vector2( 0.443345, 0.443345 )
+texture = ExtResource( 14 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
